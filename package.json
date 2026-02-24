@@ -6,7 +6,7 @@
   "description": "LeanSpec Desktop app powered by Tauri",
   "scripts": {
     "dev": "vite dev --port 1420",
-    "build": "pnpm --filter @leanspec/ui build && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -18,7 +18,7 @@
     "bundle:windows": "tauri build --bundles nsis"
   },
   "dependencies": {
-    "@leanspec/ui": "workspace:*",
+    "@leanspec/ui": "^0.2.24",
     "@tanstack/react-query": "^5.90.20",
     "@tauri-apps/api": "^2.9.1",
     "@tauri-apps/plugin-dialog": "^2.4.2",

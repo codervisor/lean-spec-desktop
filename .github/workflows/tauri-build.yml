@@ -1,0 +1,47 @@
+name: Desktop Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: pnpm
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      -import json
+from pathlib import Path
+p=Path('package.json')
+data=json.loads(p.read_text())
+o from pathldap=Path('package.json')
+aldata=json.loads(p.reaaydata['dependencies']['@leanspupif data.get('scripts',{}).get('build'):
+    dgt    data['scripts']['build']='vite buidep.write_text(json.dumps(data, indent=2)+-lPY
+mkdir -p .github/workflows
+cat > .github/  c  cat > .github/  c  cat > p
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: leanspec-desktop-${{ matrix.os }}
+          path: src-tauri/target/release/bundle
